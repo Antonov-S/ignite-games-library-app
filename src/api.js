@@ -32,14 +32,14 @@ const popular_games = `games?dates=${lastYear},${currentYear}&ordering=-rating&p
 export const popularGamesURL = () => BASE_URL + popular_games;
 const upcoming_games = `games?dates=${currentDate},${nextYear}&ordering=-added&page_size=10`;
 const newGames = `games?dates=${lastYear},${currentDate}&ordering=-released&page_size=10`;
-export const upcomingGamesURL = () => `${base_url}${upcoming_games}`;
-export const newGamesURL = () => `${base_url}${newGames}`;
+export const upcomingGamesURL = () => BASE_URL + upcoming_games;
+export const newGamesURL = () => BASE_URL + newGames;
 
 //GAME DETAILS
-export const gameDetailsURL = game_id => `${base_url}games/${game_id}`;
+export const gameDetailsURL = game_id => `${BASE_URL}games/${game_id}`;
 //Game ScreenShots
 export const gameScreenshotURL = game_id =>
-  `${base_url}games/${game_id}/screenshots`;
+  `${BASE_URL}games/${game_id}/screenshots`;
 //Searched game
 export const searchGameURL = game_name =>
-  `${base_url}games?search=${game_name}&page_size=9`;
+  `${BASE_URL}games?search=${game_name}&page_size=9`;
