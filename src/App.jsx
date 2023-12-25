@@ -7,7 +7,6 @@ function App() {
 
   return (
     <div>
-      <p>IGNITE APP</p>
       <Home />
     </div>
   )
