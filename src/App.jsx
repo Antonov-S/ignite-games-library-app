@@ -1,4 +1,5 @@
 import React from 'react';
+import { Routes, Route } from 'react-router-dom';
 
 import GlobalStyles from "./components/GlobalStyles";
 
@@ -10,7 +11,10 @@ function App() {
   return (
     <div>
       <GlobalStyles />
-      <Home />
+      <Routes>
+        <Route path="/" element={<Home />} ></Route>
+        <Route path="/game/:id" element={<Home />} ></Route>
+      </Routes>
     </div>
   )
 }
