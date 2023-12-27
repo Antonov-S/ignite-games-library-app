@@ -5,7 +5,8 @@ import { motion } from "framer-motion";
 
 import { loadGames } from "../actions/gameActions";
 
-import Game from "../components/Game"
+import Game from "../components/Game";
+import GameDetail from "../components/GameDetail";
 
 export const Home = () => {
   const dispatch = useDispatch();
@@ -19,6 +20,7 @@ export const Home = () => {
 
   return (
     <GameList>
+      <GameDetail />
       <h2>Upcomig Games</h2>
       <Games>
         {upcoming.map(game => (
