@@ -8,6 +8,8 @@ import { loadDetail } from '../actions/detailAction';
 import { smallImage } from "../util";
 
 const Game = ({ name, released, image, id }) => {
+    const stringPathId = id.toString();
+
     const dispatch = useDispatch();
 
     const loadDetailHandler = () => {
@@ -16,11 +18,17 @@ const Game = ({ name, released, image, id }) => {
     }
 
     return (
-        <StyledGame onClick={loadDetailHandler}>
+        <StyledGame layoutId={stringPathId} onClick={loadDetailHandler}>
             <Link to={`/game/${id}`}>
-                <h3>{name}</h3>
+                <motion.h3 layoutId={`title ${stringPathId}`}>
+                    {name}
+                </motion.h3>
                 <p>{released}</p>
-                <img src={smallImage(image, 640)} alt={name} />
+                <motion.img
+                    src={smallImage(image, 640)}
+                    alt={name}
+                    layoutId={`image ${stringPathId}`}
+                />
             </Link>
         </StyledGame>
     );

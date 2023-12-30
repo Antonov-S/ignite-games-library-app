@@ -6,7 +6,7 @@ import { motion } from "framer-motion";
 
 import { smallImage } from "../util";
 
-export default function GameDetail() {
+export default function GameDetail({ pathId }) {
     const navigate = useNavigate();
 
     const exitDetailHandler = (e) => {
@@ -23,10 +23,14 @@ export default function GameDetail() {
         <>
             {!isLoading && (
                 <CardShadow className='shadow' onClick={exitDetailHandler}>
-                    <Detail>
+                    <Detail layoutId={pathId}>
                         <div className="stats">
                             <div className="rating">
-                                <h3>{game.name}</h3>
+                                <motion.h3
+                                    layoutId={`title ${pathId}`}
+                                >
+                                    {game.name}
+                                </motion.h3>
                                 <p>Rating: {game.rating}</p>
                             </div>
                             <div className="info">
@@ -39,7 +43,11 @@ export default function GameDetail() {
                             </div>
                         </div>
                         <div className="media">
-                            <img src={smallImage(game.background_image, 1280)} alt={game.background_image} />
+                            <motion.img
+                                layoutId={`image ${pathId}`}
+                                src={smallImage(game.background_image, 1280)}
+                                alt={game.background_image}
+                            />
                         </div>
                         <div className="description">
                             <p>{game.description_raw}</p>
@@ -90,4 +98,8 @@ const Detail = styled(motion.div)`
     img {
         width: 100%;
     }
+
+    motion.h3 {
+        opacity: 0.5;
+      }
 `
