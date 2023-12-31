@@ -35,7 +35,7 @@ const newGames = `games?dates=${lastYear},${currentDate}&ordering=-released&page
 export const upcomingGamesURL = () => BASE_URL + upcoming_games;
 export const newGamesURL = () => BASE_URL + newGames;
 
-//GAME DETAILS
+//Game Details
 export const gameDetailsURL = game_id =>
   `${BASE_URL}games/${game_id}.json?&key=${process.env.VITE_APP_RAWG_API}`;
 // Games Screenshots
@@ -43,4 +43,4 @@ export const gameScreenshotURL = game_id =>
   `${BASE_URL}games/${game_id}/screenshots?&key=${process.env.VITE_APP_RAWG_API}`;
 //Searched game
 export const searchGameURL = game_name =>
-  `${BASE_URL}games?search=${game_name}&page_size=9`;
+  `${BASE_URL}games?key=${process.env.VITE_APP_RAWG_API}&search=${game_name}&page_size=9`;
