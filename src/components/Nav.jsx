@@ -6,6 +6,7 @@ import { motion } from "framer-motion";
 
 import logo from "../img/logo.svg";
 import { fetchSearch } from "../actions/gameActions";
+import { fadeIn } from "../animations.js";
 
 export default function Nav() {
     const dispatch = useDispatch();
@@ -27,7 +28,7 @@ export default function Nav() {
     };
 
     return (
-        <StyledNav>
+        <StyledNav variants={fadeIn} initial="hidden" animate="show" >
             <Logo onClick={clearSearched}>
                 <img src={logo} alt="Ignite app logo" />
                 <h1>Ignite</h1>
